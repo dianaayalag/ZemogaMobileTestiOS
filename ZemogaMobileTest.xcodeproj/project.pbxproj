@@ -1,0 +1,802 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		89374CD8283559F80050F84C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374CD7283559F80050F84C /* AppDelegate.swift */; };
+		89374CDA283559F80050F84C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374CD9283559F80050F84C /* SceneDelegate.swift */; };
+		89374CDC283559F80050F84C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374CDB283559F80050F84C /* MainViewController.swift */; };
+		89374CDF283559F80050F84C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89374CDD283559F80050F84C /* Main.storyboard */; };
+		89374CE4283559FC0050F84C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89374CE3283559FC0050F84C /* Assets.xcassets */; };
+		89374CE7283559FC0050F84C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89374CE5283559FC0050F84C /* LaunchScreen.storyboard */; };
+		89374CF2283559FC0050F84C /* ZemogaMobileTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374CF1283559FC0050F84C /* ZemogaMobileTestTests.swift */; };
+		89374CFC283559FC0050F84C /* ZemogaMobileTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374CFB283559FC0050F84C /* ZemogaMobileTestUITests.swift */; };
+		89374CFE283559FC0050F84C /* ZemogaMobileTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374CFD283559FC0050F84C /* ZemogaMobileTestUITestsLaunchTests.swift */; };
+		89374D1228355B820050F84C /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89374D1028355B820050F84C /* CoreData.xcdatamodeld */; };
+		89374D1528355CC00050F84C /* PostsWS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374D1428355CC00050F84C /* PostsWS.swift */; };
+		89374D1828355D1B0050F84C /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374D1728355D1B0050F84C /* PostResponse.swift */; };
+		89374D1A28355DE30050F84C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374D1928355DE30050F84C /* Post.swift */; };
+		89374D1C28355F1D0050F84C /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374D1B28355F1D0050F84C /* Closures.swift */; };
+		89374D1E283560290050F84C /* ZMTErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374D1D283560290050F84C /* ZMTErrors.swift */; };
+		893FCE23283571AE00182F5A /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893FCE22283571AE00182F5A /* PostTableViewCell.swift */; };
+		893FCE272835827400182F5A /* SegmentedControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893FCE262835827400182F5A /* SegmentedControlExtensions.swift */; };
+		893FCE292835874700182F5A /* MainAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893FCE282835874700182F5A /* MainAdapter.swift */; };
+		893FCE2B2835875500182F5A /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893FCE2A2835875500182F5A /* MainPresenter.swift */; };
+		893FCE2D2835878800182F5A /* PostsFilterAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893FCE2C2835878800182F5A /* PostsFilterAdapter.swift */; };
+		893FCE2F28358A5200182F5A /* ErrorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893FCE2E28358A5200182F5A /* ErrorTableViewCell.swift */; };
+		895A26A9283731EE008D7FB9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895A26A8283731EE008D7FB9 /* CoreDataManager.swift */; };
+		89AB726928360992008E51BC /* ZMTStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB726828360992008E51BC /* ZMTStyleKit.swift */; };
+		89AB726E28360EFB008E51BC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB726D28360EFB008E51BC /* DetailViewController.swift */; };
+		89AB7272283618C9008E51BC /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB7271283618C9008E51BC /* MainRouter.swift */; };
+		89AB72742836C0E2008E51BC /* DetailAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB72732836C0E2008E51BC /* DetailAdapter.swift */; };
+		89AB72762836C0F3008E51BC /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB72752836C0F3008E51BC /* DetailPresenter.swift */; };
+		89AB72782836C106008E51BC /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB72772836C106008E51BC /* CommentsTableViewCell.swift */; };
+		89AB727A2836C264008E51BC /* PostDetailWS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB72792836C264008E51BC /* PostDetailWS.swift */; };
+		89AB727C2836C2C8008E51BC /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB727B2836C2C8008E51BC /* CommentResponse.swift */; };
+		89AB727E2836C36C008E51BC /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB727D2836C36C008E51BC /* Comment.swift */; };
+		89AB72802836C37A008E51BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB727F2836C37A008E51BC /* User.swift */; };
+		89AB72822836C918008E51BC /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AB72812836C918008E51BC /* UserResponse.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		89374CEE283559FC0050F84C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89374CCC283559F80050F84C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89374CD3283559F80050F84C;
+			remoteInfo = "Zemoga Mobile Test iOS";
+		};
+		89374CF8283559FC0050F84C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89374CCC283559F80050F84C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89374CD3283559F80050F84C;
+			remoteInfo = "Zemoga Mobile Test iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		89374CD4283559F80050F84C /* ZemogaMobileTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZemogaMobileTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		89374CD7283559F80050F84C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		89374CD9283559F80050F84C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		89374CDB283559F80050F84C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		89374CDE283559F80050F84C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		89374CE3283559FC0050F84C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89374CE6283559FC0050F84C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89374CE8283559FC0050F84C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89374CED283559FC0050F84C /* ZemogaMobileTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZemogaMobileTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89374CF1283559FC0050F84C /* ZemogaMobileTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZemogaMobileTestTests.swift; sourceTree = "<group>"; };
+		89374CF7283559FC0050F84C /* ZemogaMobileTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZemogaMobileTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89374CFB283559FC0050F84C /* ZemogaMobileTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZemogaMobileTestUITests.swift; sourceTree = "<group>"; };
+		89374CFD283559FC0050F84C /* ZemogaMobileTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZemogaMobileTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		89374D1128355B820050F84C /* Zemoga_Mobile_Test_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Zemoga_Mobile_Test_iOS.xcdatamodel; sourceTree = "<group>"; };
+		89374D1428355CC00050F84C /* PostsWS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsWS.swift; sourceTree = "<group>"; };
+		89374D1728355D1B0050F84C /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
+		89374D1928355DE30050F84C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		89374D1B28355F1D0050F84C /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
+		89374D1D283560290050F84C /* ZMTErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMTErrors.swift; sourceTree = "<group>"; };
+		893FCE22283571AE00182F5A /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		893FCE262835827400182F5A /* SegmentedControlExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlExtensions.swift; sourceTree = "<group>"; };
+		893FCE282835874700182F5A /* MainAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAdapter.swift; sourceTree = "<group>"; };
+		893FCE2A2835875500182F5A /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		893FCE2C2835878800182F5A /* PostsFilterAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsFilterAdapter.swift; sourceTree = "<group>"; };
+		893FCE2E28358A5200182F5A /* ErrorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTableViewCell.swift; sourceTree = "<group>"; };
+		895A26A8283731EE008D7FB9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		89AB726828360992008E51BC /* ZMTStyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMTStyleKit.swift; sourceTree = "<group>"; };
+		89AB726D28360EFB008E51BC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		89AB7271283618C9008E51BC /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		89AB72732836C0E2008E51BC /* DetailAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAdapter.swift; sourceTree = "<group>"; };
+		89AB72752836C0F3008E51BC /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		89AB72772836C106008E51BC /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
+		89AB72792836C264008E51BC /* PostDetailWS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailWS.swift; sourceTree = "<group>"; };
+		89AB727B2836C2C8008E51BC /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
+		89AB727D2836C36C008E51BC /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		89AB727F2836C37A008E51BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		89AB72812836C918008E51BC /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89374CD1283559F80050F84C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89374CEA283559FC0050F84C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89374CF4283559FC0050F84C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		89374CCB283559F80050F84C = {
+			isa = PBXGroup;
+			children = (
+				89374CD6283559F80050F84C /* ZemogaMobileTest */,
+				89374CF0283559FC0050F84C /* ZemogaMobileTestTests */,
+				89374CFA283559FC0050F84C /* ZemogaMobileTestUITests */,
+				89374CD5283559F80050F84C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		89374CD5283559F80050F84C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89374CD4283559F80050F84C /* ZemogaMobileTest.app */,
+				89374CED283559FC0050F84C /* ZemogaMobileTestTests.xctest */,
+				89374CF7283559FC0050F84C /* ZemogaMobileTestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89374CD6283559F80050F84C /* ZemogaMobileTest */ = {
+			isa = PBXGroup;
+			children = (
+				89374D0B28355A480050F84C /* Assets */,
+				89374D0C28355A6D0050F84C /* CoreData */,
+				89374D1628355CF90050F84C /* DTO */,
+				89374D0A28355A2E0050F84C /* Extensions */,
+				89374D0D28355A7C0050F84C /* Scenes */,
+				89374D0F28355B140050F84C /* Supporting Files */,
+				89374D1328355C3F0050F84C /* WebServices */,
+			);
+			path = ZemogaMobileTest;
+			sourceTree = "<group>";
+		};
+		89374CF0283559FC0050F84C /* ZemogaMobileTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				89374CF1283559FC0050F84C /* ZemogaMobileTestTests.swift */,
+			);
+			path = ZemogaMobileTestTests;
+			sourceTree = "<group>";
+		};
+		89374CFA283559FC0050F84C /* ZemogaMobileTestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				89374CFB283559FC0050F84C /* ZemogaMobileTestUITests.swift */,
+				89374CFD283559FC0050F84C /* ZemogaMobileTestUITestsLaunchTests.swift */,
+			);
+			path = ZemogaMobileTestUITests;
+			sourceTree = "<group>";
+		};
+		89374D0A28355A2E0050F84C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				893FCE262835827400182F5A /* SegmentedControlExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		89374D0B28355A480050F84C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				89374CE3283559FC0050F84C /* Assets.xcassets */,
+				89374D1B28355F1D0050F84C /* Closures.swift */,
+				89374D1D283560290050F84C /* ZMTErrors.swift */,
+				893FCE2E28358A5200182F5A /* ErrorTableViewCell.swift */,
+				89AB726828360992008E51BC /* ZMTStyleKit.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		89374D0C28355A6D0050F84C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				89374D1928355DE30050F84C /* Post.swift */,
+				89AB727D2836C36C008E51BC /* Comment.swift */,
+				89AB727F2836C37A008E51BC /* User.swift */,
+				895A26A8283731EE008D7FB9 /* CoreDataManager.swift */,
+				89374D1028355B820050F84C /* CoreData.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		89374D0D28355A7C0050F84C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				89374D0E28355A8F0050F84C /* Main */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		89374D0E28355A8F0050F84C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				89374CDD283559F80050F84C /* Main.storyboard */,
+				89374D1F283566970050F84C /* MainScene */,
+				89AB726A28360EB9008E51BC /* DetailScene */,
+				89374CD7283559F80050F84C /* AppDelegate.swift */,
+				89374CE5283559FC0050F84C /* LaunchScreen.storyboard */,
+				89374CD9283559F80050F84C /* SceneDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		89374D0F28355B140050F84C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				89374CE8283559FC0050F84C /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		89374D1328355C3F0050F84C /* WebServices */ = {
+			isa = PBXGroup;
+			children = (
+				89374D1428355CC00050F84C /* PostsWS.swift */,
+				89AB72792836C264008E51BC /* PostDetailWS.swift */,
+			);
+			path = WebServices;
+			sourceTree = "<group>";
+		};
+		89374D1628355CF90050F84C /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				89374D1728355D1B0050F84C /* PostResponse.swift */,
+				89AB727B2836C2C8008E51BC /* CommentResponse.swift */,
+				89AB72812836C918008E51BC /* UserResponse.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		89374D1F283566970050F84C /* MainScene */ = {
+			isa = PBXGroup;
+			children = (
+				89374CDB283559F80050F84C /* MainViewController.swift */,
+				893FCE282835874700182F5A /* MainAdapter.swift */,
+				893FCE2A2835875500182F5A /* MainPresenter.swift */,
+				89AB7271283618C9008E51BC /* MainRouter.swift */,
+				893FCE22283571AE00182F5A /* PostTableViewCell.swift */,
+				893FCE2C2835878800182F5A /* PostsFilterAdapter.swift */,
+			);
+			path = MainScene;
+			sourceTree = "<group>";
+		};
+		89AB726A28360EB9008E51BC /* DetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				89AB726D28360EFB008E51BC /* DetailViewController.swift */,
+				89AB72732836C0E2008E51BC /* DetailAdapter.swift */,
+				89AB72752836C0F3008E51BC /* DetailPresenter.swift */,
+				89AB72772836C106008E51BC /* CommentsTableViewCell.swift */,
+			);
+			path = DetailScene;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		89374CD3283559F80050F84C /* ZemogaMobileTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89374D01283559FC0050F84C /* Build configuration list for PBXNativeTarget "ZemogaMobileTest" */;
+			buildPhases = (
+				89374CD0283559F80050F84C /* Sources */,
+				89374CD1283559F80050F84C /* Frameworks */,
+				89374CD2283559F80050F84C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZemogaMobileTest;
+			productName = "Zemoga Mobile Test iOS";
+			productReference = 89374CD4283559F80050F84C /* ZemogaMobileTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		89374CEC283559FC0050F84C /* ZemogaMobileTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89374D04283559FC0050F84C /* Build configuration list for PBXNativeTarget "ZemogaMobileTestTests" */;
+			buildPhases = (
+				89374CE9283559FC0050F84C /* Sources */,
+				89374CEA283559FC0050F84C /* Frameworks */,
+				89374CEB283559FC0050F84C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89374CEF283559FC0050F84C /* PBXTargetDependency */,
+			);
+			name = ZemogaMobileTestTests;
+			productName = "Zemoga Mobile Test iOSTests";
+			productReference = 89374CED283559FC0050F84C /* ZemogaMobileTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		89374CF6283559FC0050F84C /* ZemogaMobileTestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89374D07283559FC0050F84C /* Build configuration list for PBXNativeTarget "ZemogaMobileTestUITests" */;
+			buildPhases = (
+				89374CF3283559FC0050F84C /* Sources */,
+				89374CF4283559FC0050F84C /* Frameworks */,
+				89374CF5283559FC0050F84C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				89374CF9283559FC0050F84C /* PBXTargetDependency */,
+			);
+			name = ZemogaMobileTestUITests;
+			productName = "Zemoga Mobile Test iOSUITests";
+			productReference = 89374CF7283559FC0050F84C /* ZemogaMobileTestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		89374CCC283559F80050F84C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					89374CD3283559F80050F84C = {
+						CreatedOnToolsVersion = 13.4;
+					};
+					89374CEC283559FC0050F84C = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = 89374CD3283559F80050F84C;
+					};
+					89374CF6283559FC0050F84C = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = 89374CD3283559F80050F84C;
+					};
+				};
+			};
+			buildConfigurationList = 89374CCF283559F80050F84C /* Build configuration list for PBXProject "ZemogaMobileTest" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 89374CCB283559F80050F84C;
+			productRefGroup = 89374CD5283559F80050F84C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89374CD3283559F80050F84C /* ZemogaMobileTest */,
+				89374CEC283559FC0050F84C /* ZemogaMobileTestTests */,
+				89374CF6283559FC0050F84C /* ZemogaMobileTestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		89374CD2283559F80050F84C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89374CE7283559FC0050F84C /* LaunchScreen.storyboard in Resources */,
+				89374CE4283559FC0050F84C /* Assets.xcassets in Resources */,
+				89374CDF283559F80050F84C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89374CEB283559FC0050F84C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89374CF5283559FC0050F84C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89374CD0283559F80050F84C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89AB72802836C37A008E51BC /* User.swift in Sources */,
+				893FCE2F28358A5200182F5A /* ErrorTableViewCell.swift in Sources */,
+				89AB727A2836C264008E51BC /* PostDetailWS.swift in Sources */,
+				89374D1828355D1B0050F84C /* PostResponse.swift in Sources */,
+				89AB726928360992008E51BC /* ZMTStyleKit.swift in Sources */,
+				89374D1C28355F1D0050F84C /* Closures.swift in Sources */,
+				89AB72762836C0F3008E51BC /* DetailPresenter.swift in Sources */,
+				893FCE2D2835878800182F5A /* PostsFilterAdapter.swift in Sources */,
+				89374CDC283559F80050F84C /* MainViewController.swift in Sources */,
+				89374CD8283559F80050F84C /* AppDelegate.swift in Sources */,
+				89AB72782836C106008E51BC /* CommentsTableViewCell.swift in Sources */,
+				893FCE2B2835875500182F5A /* MainPresenter.swift in Sources */,
+				89AB726E28360EFB008E51BC /* DetailViewController.swift in Sources */,
+				89374D1228355B820050F84C /* CoreData.xcdatamodeld in Sources */,
+				89374D1528355CC00050F84C /* PostsWS.swift in Sources */,
+				89374D1A28355DE30050F84C /* Post.swift in Sources */,
+				89AB72822836C918008E51BC /* UserResponse.swift in Sources */,
+				89AB727E2836C36C008E51BC /* Comment.swift in Sources */,
+				893FCE272835827400182F5A /* SegmentedControlExtensions.swift in Sources */,
+				89AB727C2836C2C8008E51BC /* CommentResponse.swift in Sources */,
+				89AB72742836C0E2008E51BC /* DetailAdapter.swift in Sources */,
+				893FCE292835874700182F5A /* MainAdapter.swift in Sources */,
+				893FCE23283571AE00182F5A /* PostTableViewCell.swift in Sources */,
+				89374D1E283560290050F84C /* ZMTErrors.swift in Sources */,
+				89374CDA283559F80050F84C /* SceneDelegate.swift in Sources */,
+				895A26A9283731EE008D7FB9 /* CoreDataManager.swift in Sources */,
+				89AB7272283618C9008E51BC /* MainRouter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89374CE9283559FC0050F84C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89374CF2283559FC0050F84C /* ZemogaMobileTestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89374CF3283559FC0050F84C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89374CFC283559FC0050F84C /* ZemogaMobileTestUITests.swift in Sources */,
+				89374CFE283559FC0050F84C /* ZemogaMobileTestUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		89374CEF283559FC0050F84C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89374CD3283559F80050F84C /* ZemogaMobileTest */;
+			targetProxy = 89374CEE283559FC0050F84C /* PBXContainerItemProxy */;
+		};
+		89374CF9283559FC0050F84C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89374CD3283559F80050F84C /* ZemogaMobileTest */;
+			targetProxy = 89374CF8283559FC0050F84C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		89374CDD283559F80050F84C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89374CDE283559F80050F84C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		89374CE5283559FC0050F84C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89374CE6283559FC0050F84C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		89374CFF283559FC0050F84C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		89374D00283559FC0050F84C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		89374D02283559FC0050F84C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P8J2DS2Z2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ZemogaMobileTest/Supporting Files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dianaayalag.ZemogaMobileTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		89374D03283559FC0050F84C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P8J2DS2Z2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ZemogaMobileTest/Supporting Files/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dianaayalag.ZemogaMobileTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		89374D05283559FC0050F84C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P8J2DS2Z2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dianaayalag.Zemoga-Mobile-Test-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZemogaMobileTest.app/ZemogaMobileTest";
+			};
+			name = Debug;
+		};
+		89374D06283559FC0050F84C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P8J2DS2Z2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dianaayalag.Zemoga-Mobile-Test-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZemogaMobileTest.app/ZemogaMobileTest";
+			};
+			name = Release;
+		};
+		89374D08283559FC0050F84C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P8J2DS2Z2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dianaayalag.Zemoga-Mobile-Test-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Zemoga Mobile Test iOS";
+			};
+			name = Debug;
+		};
+		89374D09283559FC0050F84C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P8J2DS2Z2V;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dianaayalag.Zemoga-Mobile-Test-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Zemoga Mobile Test iOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		89374CCF283559F80050F84C /* Build configuration list for PBXProject "ZemogaMobileTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89374CFF283559FC0050F84C /* Debug */,
+				89374D00283559FC0050F84C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89374D01283559FC0050F84C /* Build configuration list for PBXNativeTarget "ZemogaMobileTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89374D02283559FC0050F84C /* Debug */,
+				89374D03283559FC0050F84C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89374D04283559FC0050F84C /* Build configuration list for PBXNativeTarget "ZemogaMobileTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89374D05283559FC0050F84C /* Debug */,
+				89374D06283559FC0050F84C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89374D07283559FC0050F84C /* Build configuration list for PBXNativeTarget "ZemogaMobileTestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89374D08283559FC0050F84C /* Debug */,
+				89374D09283559FC0050F84C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		89374D1028355B820050F84C /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				89374D1128355B820050F84C /* Zemoga_Mobile_Test_iOS.xcdatamodel */,
+			);
+			currentVersion = 89374D1128355B820050F84C /* Zemoga_Mobile_Test_iOS.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 89374CCC283559F80050F84C /* Project object */;
+}
