@@ -14,6 +14,7 @@
 		891C2E83283AB7A300C4652A /* Comment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C2E7D283AB7A300C4652A /* Comment+CoreDataProperties.swift */; };
 		891C2E84283AB7A300C4652A /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C2E7E283AB7A300C4652A /* User+CoreDataClass.swift */; };
 		891C2E85283AB7A300C4652A /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C2E7F283AB7A300C4652A /* User+CoreDataProperties.swift */; };
+		891C2E88283AD45C00C4652A /* NSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891C2E87283AD45C00C4652A /* NSManagedObject.swift */; };
 		89374CD8283559F80050F84C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374CD7283559F80050F84C /* AppDelegate.swift */; };
 		89374CDA283559F80050F84C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374CD9283559F80050F84C /* SceneDelegate.swift */; };
 		89374CDC283559F80050F84C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374CDB283559F80050F84C /* MainViewController.swift */; };
@@ -69,6 +70,7 @@
 		891C2E7D283AB7A300C4652A /* Comment+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comment+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		891C2E7E283AB7A300C4652A /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		891C2E7F283AB7A300C4652A /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		891C2E87283AD45C00C4652A /* NSManagedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObject.swift; sourceTree = "<group>"; };
 		89374CD4283559F80050F84C /* ZemogaMobileTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZemogaMobileTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89374CD7283559F80050F84C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89374CD9283559F80050F84C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				893FCE262835827400182F5A /* SegmentedControlExtensions.swift */,
+				891C2E87283AD45C00C4652A /* NSManagedObject.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				893FCE2B2835875500182F5A /* MainPresenter.swift in Sources */,
 				89AB726E28360EFB008E51BC /* DetailViewController.swift in Sources */,
 				89374D1228355B820050F84C /* CoreData.xcdatamodeld in Sources */,
+				891C2E88283AD45C00C4652A /* NSManagedObject.swift in Sources */,
 				89374D1528355CC00050F84C /* PostsWS.swift in Sources */,
 				89AB72822836C918008E51BC /* UserResponse.swift in Sources */,
 				891C2E83283AB7A300C4652A /* Comment+CoreDataProperties.swift in Sources */,
