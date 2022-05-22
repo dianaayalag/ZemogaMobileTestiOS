@@ -103,7 +103,8 @@ extension MainViewController {
     
     @objc func segmentedControlChanged(_ sender: UISegmentedControl) {
         self.allowRefreshing = sender.selectedSegmentIndex == 0
-        self.filterAdapter.filterByFavorites(favorites: !(sender.selectedSegmentIndex == 0))
+        self.filterAdapter.filterByFavorites(favorites: !self.allowRefreshing)
+        self.pullToRefresh()
     }
 }
 
@@ -162,7 +163,9 @@ extension MainViewController: MainViewControllerProtocol {
     
     func reloadTableWithData(_ dataSource: [Any]) {
         self.mainAdapter.dataSource = dataSource
-        self.postsTableView.reloadData()
+        UIView.animate(withDuration: 1) {
+            self.postsTableView.reloadData()
+        }
     }
     
     func setFilterAdapterDataSource(_ dataSource: [Any]) {
