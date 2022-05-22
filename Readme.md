@@ -88,7 +88,7 @@ The app has a few minor bugs I detected when testing. This bugs aren't the end o
 3. ~~**Posts title** when performing segue to detail. When going to th detail view (for some reason) the Posts title looks like it's glitched. Could be related to the previous bug but not sure.~~ 
     - Bug fixed with `navigationItem.largeTitleDisplayMode = .never`
 
-4. ~~ **"2022-05-20 01:01:30.902704-0500 Zemoga Mobile Test iOS[42873:8953305] [boringssl]"** warning when launching app. Could be related to the call to the API.~~ 
+4. ~~**"2022-05-20 01:01:30.902704-0500 Zemoga Mobile Test iOS[42873:8953305] [boringssl]"** warning when launching app. Could be related to the call to the API.~~ 
     - Apparently this if caused because the API uses boringSSL and not OpenSSL.  Will declare this bug as fixed but requires further investigation.
 
 5. ~~**Switching filter with segmented controller** does not make the favorites go to top. I think this is because the segmented control event doesn't make the table reload.~~
