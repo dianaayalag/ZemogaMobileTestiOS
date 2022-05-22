@@ -83,6 +83,6 @@ The app has a few minor bugs I detected when testing. This bugs aren't the end o
 1. **Reloading the table when filtered on favorites gets all posts (like it was never filtered)**. I think this has something to do with the fact that favorites are only managed by front, so it refreshes and get more info and doesn't care if those are fav or not. I know there should be a way to fix this using only front but didn't have enough time to do it
 2. **"CoreAnimation: stiffness must be greater than 0" warning** when tapping on a cell and getting redirected to the detail view. This "bug" is just a warning about the animation, but we don't see anything weird on the display. It's just on the console, but it still should be fixed.
 3. ~~**Posts title** when performing segue to detail. When going to th detail view (for some reason) the Posts title looks like it's glitched. Could be related to the previous bug but not sure.~~ 
-- <sub>Bug fixed with `navigationItem.largeTitleDisplayMode = .never`<sub>
+    - Bug fixed with `navigationItem.largeTitleDisplayMode = .never`
 4. **"2022-05-20 01:01:30.902704-0500 Zemoga Mobile Test iOS[42873:8953305] [boringssl]"** warning when launching app. Could be related to the call to the API. Requires further investigation.
 5. **Switching filter with segmented controller** does not make the favorites go to top. I think this is because the segmented control event doesn't make the table reload.
