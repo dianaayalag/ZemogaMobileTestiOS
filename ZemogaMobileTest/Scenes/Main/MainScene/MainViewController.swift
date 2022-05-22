@@ -9,7 +9,7 @@ import UIKit
 
 protocol MainViewControllerProtocol: NSObjectProtocol {
     func configureAdapters()
-    func disappearView()
+    func appearView()
     func setUpRefreshView()
     func setUpView()
     func showLoading(_ show: Bool)
@@ -60,8 +60,8 @@ class MainViewController: UIViewController {
         self.presenter.didLoad()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.presenter.willDisappear()
+    override func viewWillAppear(_ animated: Bool) {
+        self.presenter.willAppear()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -112,8 +112,9 @@ extension MainViewController: MainViewControllerProtocol {
         self.mainAdapter.setTableView(self.postsTableView)
     }
     
-    func disappearView() {
-        navigationController?.navigationBar.prefersLargeTitles = false
+    func appearView() {
+        navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func setUpRefreshView() {
@@ -121,7 +122,6 @@ extension MainViewController: MainViewControllerProtocol {
     }
     
     func setUpView() {
-        navigationController?.navigationBar.prefersLargeTitles = true
         favoritesSegmentedControl.setAppearanceWithColor(ZMTStyleKit.ZMTColors.officialDarkBlue)
         favoritesSegmentedControl.addTarget(self, action: #selector(segmentedControlChanged(_:)), for: .valueChanged)
         self.addRightItems()

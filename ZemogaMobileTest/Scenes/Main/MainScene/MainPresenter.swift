@@ -10,7 +10,7 @@ import UIKit
 protocol MainPresenterProtocol {
     func didAppear()
     func didLoad()
-    func willDisappear()
+    func willAppear()
     func prepareForSegue(_ segue: UIStoryboardSegue, post: Post?)
     func deleteAll()
     func deleteSinglePost(_ post: Post)
@@ -44,8 +44,8 @@ extension MainPresenter: MainPresenterProtocol {
         self.getAllPosts()
     }
     
-    func willDisappear() {
-        self.controller.disappearView()
+    func willAppear() {
+        self.controller.appearView()
     }
     
     // MARK: Navigation events

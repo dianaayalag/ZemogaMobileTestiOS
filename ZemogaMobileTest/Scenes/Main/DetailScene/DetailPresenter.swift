@@ -9,7 +9,7 @@ import UIKit
 
 protocol DetailPresenterProtocol {
     func didLoad(post: Post?)
-    func willDisappear()
+    func willAppear()
     func pullToRefresh(post: Post?)
 }
 
@@ -40,8 +40,8 @@ extension DetailPresenter: DetailPresenterProtocol {
         }
     }
     
-    func willDisappear() {
-        self.controller.disappearView()
+    func willAppear() {
+        self.controller.appearView()
     }
     
     // MARK: Other events

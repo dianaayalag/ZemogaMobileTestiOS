@@ -9,7 +9,7 @@ import UIKit
 
 protocol DetailViewControllerProtocol: NSObjectProtocol {
     func configureAdapters()
-    func disappearView()
+    func appearView()
     func setUpView()
     func showLoading(_ show: Bool)
     func reloadTableWithData(_ dataSource: [Any])
@@ -51,8 +51,8 @@ class DetailViewController: UIViewController {
         self.presenter.didLoad(post: post)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.presenter.willDisappear()
+    override func viewWillAppear(_ animated: Bool) {
+        self.presenter.willAppear()
     }
     
     // MARK: Other events
@@ -91,8 +91,8 @@ extension DetailViewController: DetailViewControllerProtocol {
         self.detailAdapter.setTableView(self.commentsTableView)
     }
     
-    func disappearView() {
-        navigationController?.navigationBar.prefersLargeTitles = true
+    func appearView() {
+        navigationItem.largeTitleDisplayMode = .never
     }
     
     func setUpView() {
