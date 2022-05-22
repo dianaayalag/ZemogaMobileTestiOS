@@ -15,7 +15,6 @@
 		89374CE7283559FC0050F84C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89374CE5283559FC0050F84C /* LaunchScreen.storyboard */; };
 		89374CF2283559FC0050F84C /* ZemogaMobileTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374CF1283559FC0050F84C /* ZemogaMobileTestTests.swift */; };
 		89374CFC283559FC0050F84C /* ZemogaMobileTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374CFB283559FC0050F84C /* ZemogaMobileTestUITests.swift */; };
-		89374CFE283559FC0050F84C /* ZemogaMobileTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374CFD283559FC0050F84C /* ZemogaMobileTestUITestsLaunchTests.swift */; };
 		89374D1228355B820050F84C /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89374D1028355B820050F84C /* CoreData.xcdatamodeld */; };
 		89374D1528355CC00050F84C /* PostsWS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374D1428355CC00050F84C /* PostsWS.swift */; };
 		89374D1828355D1B0050F84C /* PostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89374D1728355D1B0050F84C /* PostResponse.swift */; };
@@ -72,7 +71,6 @@
 		89374CF1283559FC0050F84C /* ZemogaMobileTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZemogaMobileTestTests.swift; sourceTree = "<group>"; };
 		89374CF7283559FC0050F84C /* ZemogaMobileTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZemogaMobileTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89374CFB283559FC0050F84C /* ZemogaMobileTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZemogaMobileTestUITests.swift; sourceTree = "<group>"; };
-		89374CFD283559FC0050F84C /* ZemogaMobileTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZemogaMobileTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		89374D1128355B820050F84C /* Zemoga_Mobile_Test_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Zemoga_Mobile_Test_iOS.xcdatamodel; sourceTree = "<group>"; };
 		89374D1428355CC00050F84C /* PostsWS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsWS.swift; sourceTree = "<group>"; };
 		89374D1728355D1B0050F84C /* PostResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponse.swift; sourceTree = "<group>"; };
@@ -170,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				89374CFB283559FC0050F84C /* ZemogaMobileTestUITests.swift */,
-				89374CFD283559FC0050F84C /* ZemogaMobileTestUITestsLaunchTests.swift */,
 			);
 			path = ZemogaMobileTestUITests;
 			sourceTree = "<group>";
@@ -453,7 +450,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				89374CFC283559FC0050F84C /* ZemogaMobileTestUITests.swift in Sources */,
-				89374CFE283559FC0050F84C /* ZemogaMobileTestUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +618,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -652,6 +649,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -679,7 +677,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dianaayalag.Zemoga-Mobile-Test-iOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dianaayalag.ZemogaMobileTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -699,7 +697,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dianaayalag.Zemoga-Mobile-Test-iOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dianaayalag.ZemogaMobileTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -717,12 +715,12 @@
 				DEVELOPMENT_TEAM = P8J2DS2Z2V;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dianaayalag.Zemoga-Mobile-Test-iOSUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dianaayalag.ZemogaMobileTestUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Zemoga Mobile Test iOS";
+				TEST_TARGET_NAME = ZemogaMobileTest;
 			};
 			name = Debug;
 		};
@@ -735,12 +733,12 @@
 				DEVELOPMENT_TEAM = P8J2DS2Z2V;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dianaayalag.Zemoga-Mobile-Test-iOSUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dianaayalag.ZemogaMobileTestUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Zemoga Mobile Test iOS";
+				TEST_TARGET_NAME = ZemogaMobileTest;
 			};
 			name = Release;
 		};
