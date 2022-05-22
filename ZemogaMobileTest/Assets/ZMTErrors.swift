@@ -9,6 +9,7 @@ import Foundation
 
 enum ZMTErrors: LocalizedError {
     case idNotFound
+    case coreDataError
     case unknownError
     case urlNotFound
     case generic(String)
@@ -17,6 +18,8 @@ enum ZMTErrors: LocalizedError {
         switch self {
         case .idNotFound:
             return "ID not found"
+        case .coreDataError:
+            return "Core Data error"
         case .unknownError:
             return "Unknown error"
         case .urlNotFound:

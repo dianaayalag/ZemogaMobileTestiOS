@@ -62,7 +62,7 @@
                                                             <rect key="frame" x="0.0" y="11" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="40" id="3lb-e5-oJx"/>
-                                                                <constraint firstAttribute="height" constant="40" id="uTZ-9I-XIr"/>
+                                                                <constraint firstAttribute="height" priority="750" constant="40" id="uTZ-9I-XIr"/>
                                                             </constraints>
                                                             <color key="tintColor" systemColor="systemGrayColor"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>

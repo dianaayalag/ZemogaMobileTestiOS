@@ -8,13 +8,13 @@
 import UIKit
 
 protocol MainPresenterProtocol {
-    func didLoad()
     func didAppear()
+    func didLoad()
     func willDisappear()
-    func pullToRefresh()
     func prepareForSegue(_ segue: UIStoryboardSegue, post: Post?)
     func deleteAll()
-    func deleteSinglePost(id: Int)
+    func deleteSinglePost(_ post: Post)
+    func pullToRefresh()
 }
 
 struct MainPresenter {
@@ -30,27 +30,11 @@ struct MainPresenter {
 //MARK: - MainPresenterProtocol
 extension MainPresenter: MainPresenterProtocol {
     
-    func pullToRefresh() {
-        self.getAllPosts()
-    }
+    // MARK: Controller lifecycle events
     
     func didAppear() {
         self.controller.setUpView()
         self.getAllPosts()
-    }
-    
-    func willDisappear() {
-        self.controller.disappearView()
-    }
-    
-    func deleteSinglePost(id: Int) {
-        self.deleteOnePost(id: id)
-    }
-    
-    func deleteAll() {
-        self.controller.showDeleteAlert{ _ in
-            self.deleteAllPosts()
-        }
     }
     
     func didLoad() {
@@ -60,16 +44,71 @@ extension MainPresenter: MainPresenterProtocol {
         self.getAllPosts()
     }
     
+    func willDisappear() {
+        self.controller.disappearView()
+    }
+    
+    // MARK: Navigation events
+    
     func prepareForSegue(_ segue: UIStoryboardSegue, post: Post?) {
         if let id = segue.identifier, id == "DetailViewController" {
             let destination = segue.destination as! DetailViewController
             destination.post = post
         }
     }
+    
+    // MARK: Other events
+    
+    func deleteAll() {
+        self.controller.showDeleteAlert{ _ in
+            self.deleteAllPosts()
+        }
+    }
+    
+    func deleteSinglePost(_ post: Post) {
+        self.deletePost(post)
+    }
+    
+    func pullToRefresh() {
+        self.getAllPosts()
+    }
 }
 
 //MARK: - Methods
 extension MainPresenter {
+    
+    private func deleteAllPosts() {
+        self.controller.showLoading(true)
+        self.webService.deleteAllPosts {
+            self.controller.showLoading(false)
+            self.controller.deleteAllPostsFromDataSource()
+            self.controller.showAllPostsDeletedAlert()
+            do {
+                try Post.deleteAll()
+            } catch {
+                self.controller.showCouldntDeletePostsAlert()
+            }
+        } error: { errorMessage in
+            self.controller.showLoading(false)
+            self.controller.showCouldntDeletePostsAlert()
+        }
+    }
+    
+    private func deletePost(_ post: Post) {
+        self.controller.showLoading(true)
+        self.webService.deletePostWithId(id: Int(post.id)) {
+            self.controller.showLoading(false)
+            do {
+                try Post.deletePost(post)
+            } catch {
+                self.controller.showCouldntDeletePostAlert()
+            }
+            self.controller.showPostDeletedAlert()
+        } error: { errorMessage in
+            self.controller.showLoading(false)
+            self.controller.showCouldntDeletePostAlert()
+        }
+    }
     
     private func getAllPosts() {
         self.controller.showLoading(true)
@@ -85,31 +124,6 @@ extension MainPresenter {
         } error: { errorMessage in
             self.controller.showLoading(false)
             self.controller.reloadTableWithData([errorMessage])
-        }
-    }
-    
-    private func deleteAllPosts() {
-        self.controller.showLoading(true)
-        self.webService.deleteAllPosts {
-            self.controller.showLoading(false)
-            self.controller.deleteAllPostsFromDataSource()
-            self.controller.showAllPostsDeletedAlert()
-            do { try Post.deleteAll() } catch {}
-        } error: { errorMessage in
-            self.controller.showLoading(false)
-            self.controller.showCouldntDeletePostsAlert()
-        }
-    }
-    
-    private func deleteOnePost(id: Int) {
-        self.controller.showLoading(true)
-        self.webService.deletePostWithId(id: id) {
-            self.controller.showLoading(false)
-            do { try Post.deleteSingle(id: id as NSNumber) } catch {}
-            self.controller.showPostDeletedAlert()
-        } error: { errorMessage in
-            self.controller.showLoading(false)
-            self.controller.showCouldntDeletePostAlert()
         }
     }
 }

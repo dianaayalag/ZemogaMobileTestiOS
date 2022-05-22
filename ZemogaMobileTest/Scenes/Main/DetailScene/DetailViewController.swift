@@ -10,14 +10,16 @@ import UIKit
 protocol DetailViewControllerProtocol: NSObjectProtocol {
     func configureAdapters()
     func disappearView()
-    func showLoading(_ show: Bool)
-    func displayUser(_ user: User)
-    func displayPostInfo(_ post: Post?)
     func setUpView()
+    func showLoading(_ show: Bool)
     func reloadTableWithData(_ dataSource: [Any])
+    func displayPostInfo(_ post: Post?)
+    func displayUser(_ user: User)
 }
 
 class DetailViewController: UIViewController {
+    
+    // MARK: User Interface oulets
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -31,6 +33,19 @@ class DetailViewController: UIViewController {
     
     var post: Post?
     
+    lazy private var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.pullToRefresh), for: .valueChanged)
+        return refreshControl
+    }()
+    
+    // MARK: Adapters, presenters and routers
+    
+    lazy private var detailAdapter: DetailAdapterProtocol = DetailAdapter(detailVC: self)
+    lazy private var presenter: DetailPresenterProtocol = DetailPresenter(controller: self)
+    
+    // MARK: Controller lifecycle events
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.presenter.didLoad(post: post)
@@ -39,6 +54,8 @@ class DetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.presenter.willDisappear()
     }
+    
+    // MARK: Other events
     
     func addRightItems(image: String) {
         let favoriteButton = UIButton(type: .custom)
@@ -49,19 +66,11 @@ class DetailViewController: UIViewController {
         let favoriteItem = UIBarButtonItem(customView: favoriteButton)
         navigationItem.setRightBarButton(favoriteItem, animated: true)
     }
-    
-    lazy private var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(self.pullToRefresh), for: .valueChanged)
-        return refreshControl
-    }()
-    
-    lazy private var detailAdapter: DetailAdapterProtocol = DetailAdapter(detailVC: self)
-    lazy private var presenter: DetailPresenterProtocol = DetailPresenter(controller: self)
-    
 }
 
 extension DetailViewController {
+    
+    // MARK: UI Gestures
 
     @objc func pullToRefresh() {
         self.presenter.pullToRefresh(post: post)
@@ -76,18 +85,34 @@ extension DetailViewController {
 
 extension DetailViewController: DetailViewControllerProtocol {
     
+    // MARK: View & configuration events
+    
     func configureAdapters() {
         self.detailAdapter.setTableView(self.commentsTableView)
+    }
+    
+    func disappearView() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func setUpView() {
+        let buttonImage = post?.favorite ?? false ? "star.fill" : "star"
+        self.addRightItems(image: buttonImage)
+        self.navigationController?.navigationBar.tintColor = ZMTStyleKit.ZMTColors.officialDarkBlue
     }
     
     func showLoading(_ show: Bool) {
         show ? self.refreshControl.beginRefreshing() : self.refreshControl.endRefreshing()
     }
     
+    // MARK: Table related events
+    
     func reloadTableWithData(_ dataSource: [Any]) {
         self.detailAdapter.dataSource = dataSource
         self.commentsTableView.reloadData()
     }
+    
+    // MARK: Display events
     
     func displayPostInfo(_ post: Post?) {
         titleLabel.text = post?.title
@@ -100,15 +125,4 @@ extension DetailViewController: DetailViewControllerProtocol {
         userPhoneLabel.text = user.phone
         userWebsiteLabel.text = user.website
     }
-    
-    func setUpView() {
-        let buttonImage = post?.favorite ?? false ? "star.fill" : "star"
-        self.addRightItems(image: buttonImage)
-        self.navigationController?.navigationBar.tintColor = ZMTStyleKit.ZMTColors.officialDarkBlue
-    }
-    
-    func disappearView() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
 }

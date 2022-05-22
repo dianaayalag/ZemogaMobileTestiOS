@@ -9,8 +9,8 @@ import UIKit
 
 protocol PostsFilterAdapterProtocol {
     var dataSource: [Post] { get set }
-    func filterByFavorites(favorites: Bool)
     func deletePost(_ post: Post)
+    func filterByFavorites(favorites: Bool)
 }
 
 class PostsFilterAdapter: NSObject, PostsFilterAdapterProtocol {
@@ -22,7 +22,6 @@ class PostsFilterAdapter: NSObject, PostsFilterAdapterProtocol {
     init(mainVC: MainViewControllerProtocol) {
         self.mainVC = mainVC
     }
-    
 }
 
 extension PostsFilterAdapter {

@@ -8,39 +8,56 @@
 import UIKit
 
 protocol MainViewControllerProtocol: NSObjectProtocol {
-    func didSelectPost(_ post: Post)
     func configureAdapters()
-    func reloadTableWithData(_ dataSource: [Any])
-    func showLoading(_ show: Bool)
-    func setUpRefreshView()
     func disappearView()
+    func setUpRefreshView()
     func setUpView()
+    func showLoading(_ show: Bool)
     func presentDetailVC()
-    func showDeleteAlert(deleteActionHandler: @escaping ActionHandler)
-    func showAllPostsDeletedAlert()
-    func showCouldntDeletePostsAlert()
-    func showPostDeletedAlert()
-    func showCouldntDeletePostAlert()
     func deleteAllPostsFromDataSource()
     func deleteSinglePost(_ post: Post)
     func didFilterWithResult(_ dataSource: [Any])
+    func didSelectPost(_ post: Post)
+    func reloadTableWithData(_ dataSource: [Any])
     func setFilterAdapterDataSource(_ dataSource: [Any])
+    func showAllPostsDeletedAlert()
+    func showCouldntDeletePostAlert()
+    func showCouldntDeletePostsAlert()
+    func showDeleteAlert(deleteActionHandler: @escaping ActionHandler)
+    func showPostDeletedAlert()
 }
 
 class MainViewController: UIViewController {
+    
+    // MARK: User Interface oulets
 
     @IBOutlet weak var favoritesSegmentedControl: UISegmentedControl!
     @IBOutlet weak var postsTableView: UITableView!
     
     private var currentPost: Post?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.presenter.didLoad()
-    }
+    lazy private var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.pullToRefresh), for: .valueChanged)
+        return refreshControl
+    }()
+    
+    // MARK: Adapters, presenters and routers
+
+    lazy private var mainAdapter: MainAdapterProtocol = MainAdapter(mainVC: self)
+    lazy private var filterAdapter: PostsFilterAdapterProtocol = PostsFilterAdapter(mainVC: self)
+    lazy private var presenter: MainPresenterProtocol = MainPresenter(controller: self)
+    lazy private var router: MainRouterProtocol = MainRouter(mainVC: self)
+    
+    // MARK: Controller lifecycle events
     
     override func viewDidAppear(_ animated: Bool) {
         self.presenter.didAppear()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.presenter.didLoad()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,6 +67,8 @@ class MainViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.presenter.prepareForSegue(segue, post: currentPost)
     }
+    
+    // MARK: Other events
     
     func addRightItems() {
         let deleteButton = UIButton(type: .custom)
@@ -66,21 +85,11 @@ class MainViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    
-    lazy private var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(self.pullToRefresh), for: .valueChanged)
-        return refreshControl
-    }()
-
-    lazy private var mainAdapter: MainAdapterProtocol = MainAdapter(mainVC: self)
-    lazy private var filterAdapter: PostsFilterAdapterProtocol = PostsFilterAdapter(mainVC: self)
-    lazy private var presenter: MainPresenterProtocol = MainPresenter(controller: self)
-    lazy private var router: MainRouterProtocol = MainRouter(mainVC: self)
-
 }
 
 extension MainViewController {
+    
+    // MARK: UI Gestures
 
     @objc func pullToRefresh() {
         self.presenter.pullToRefresh()
@@ -97,9 +106,38 @@ extension MainViewController {
 
 extension MainViewController: MainViewControllerProtocol {
     
-    func didFilterWithResult(_ dataSource: [Any]) {
-        self.reloadTableWithData(dataSource)
+    // MARK: View & configuration events
+    
+    func configureAdapters() {
+        self.mainAdapter.setTableView(self.postsTableView)
     }
+    
+    func disappearView() {
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    func setUpRefreshView() {
+        self.postsTableView.addSubview(self.refreshControl)
+    }
+    
+    func setUpView() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        favoritesSegmentedControl.setAppearanceWithColor(ZMTStyleKit.ZMTColors.officialDarkBlue)
+        favoritesSegmentedControl.addTarget(self, action: #selector(segmentedControlChanged(_:)), for: .valueChanged)
+        self.addRightItems()
+    }
+    
+    func showLoading(_ show: Bool) {
+        show ? self.refreshControl.beginRefreshing() : self.refreshControl.endRefreshing()
+    }
+    
+    // MARK: Navigation events
+    
+    func presentDetailVC() {
+        self.performSegue(withIdentifier: "DetailViewController", sender: nil)
+    }
+    
+    // MARK: Table related events
     
     func deleteAllPostsFromDataSource() {
         self.reloadTableWithData([])
@@ -107,39 +145,16 @@ extension MainViewController: MainViewControllerProtocol {
     
     func deleteSinglePost(_ post: Post) {
         self.filterAdapter.deletePost(post)
-        
-//        self.presenter.deleteSinglePost(id: id)
+        self.presenter.deleteSinglePost(post)
     }
     
-    func showDeleteAlert(deleteActionHandler: @escaping ActionHandler) {
-        let alert = UIAlertController(title: "Delete", message: "Do you really want to delete all posts?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: deleteActionHandler))
-        self.present(alert, animated: true, completion: nil)
+    func didFilterWithResult(_ dataSource: [Any]) {
+        self.reloadTableWithData(dataSource)
     }
     
-    func showAllPostsDeletedAlert() {
-        self.showGenericAlert(title: "Deleted", message: "All posts successfully deleted")
-    }
-    
-    func showPostDeletedAlert() {
-        self.showGenericAlert(title: "Deleted", message: "Post successfully deleted")
-    }
-    
-    func showCouldntDeletePostsAlert() {
-        self.showGenericAlert(title: "Error", message: "Posts couldn't be deleted, try again")
-    }
-    
-    func showCouldntDeletePostAlert() {
-        self.showGenericAlert(title: "Error", message: "Post couldn't be deleted, try again")
-    }
-    
-    func setUpRefreshView() {
-        self.postsTableView.addSubview(self.refreshControl)
-    }
-    
-    func showLoading(_ show: Bool) {
-        show ? self.refreshControl.beginRefreshing() : self.refreshControl.endRefreshing()
+    func didSelectPost(_ post: Post) {
+        currentPost = post
+        self.router.navigateToDetailForPost(post)
     }
     
     func reloadTableWithData(_ dataSource: [Any]) {
@@ -151,27 +166,28 @@ extension MainViewController: MainViewControllerProtocol {
         self.filterAdapter.dataSource = dataSource as? [Post] ?? []
     }
     
-    func configureAdapters() {
-        self.mainAdapter.setTableView(self.postsTableView)
+    // MARK: Alert events
+    
+    func showAllPostsDeletedAlert() {
+        self.showGenericAlert(title: "Deleted", message: "All posts successfully deleted")
     }
     
-    func didSelectPost(_ post: Post) {
-        currentPost = post
-        self.router.navigateToDetailForPost(post)
+    func showCouldntDeletePostAlert() {
+        self.showGenericAlert(title: "Error", message: "Post couldn't be deleted, try again")
     }
     
-    func setUpView() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        favoritesSegmentedControl.setAppearanceWithColor(ZMTStyleKit.ZMTColors.officialDarkBlue)
-        favoritesSegmentedControl.addTarget(self, action: #selector(segmentedControlChanged(_:)), for: .valueChanged)
-        self.addRightItems()
+    func showCouldntDeletePostsAlert() {
+        self.showGenericAlert(title: "Error", message: "Posts couldn't be deleted, try again")
     }
     
-    func disappearView() {
-        navigationController?.navigationBar.prefersLargeTitles = false
+    func showDeleteAlert(deleteActionHandler: @escaping ActionHandler) {
+        let alert = UIAlertController(title: "Delete", message: "Do you really want to delete all posts?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: deleteActionHandler))
+        self.present(alert, animated: true, completion: nil)
     }
     
-    func presentDetailVC() {
-        self.performSegue(withIdentifier: "DetailViewController", sender: nil)
+    func showPostDeletedAlert() {
+        self.showGenericAlert(title: "Deleted", message: "Post successfully deleted")
     }
 }

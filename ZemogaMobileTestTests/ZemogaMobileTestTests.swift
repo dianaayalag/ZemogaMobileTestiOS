@@ -17,9 +17,9 @@ class ZemogaMobileTestTests: XCTestCase {
         // Check if post has a false favorite by default
         XCTAssertFalse(sut.favorite, "Post favorite is not false")
         // delete created post
-        try Post.deleteSingle(id: -1)
+        sut.delete()
         // save
-        try CoreData.save()
+        CoreDataManager.shared.saveContext()
     }
     
     func testPost_ToggleFavorite() throws {
@@ -31,9 +31,9 @@ class ZemogaMobileTestTests: XCTestCase {
         sut.toggleFavorite()
         XCTAssertFalse(sut.favorite, "Toggle favorite TTF didn't work")
         // delete created post
-        try Post.deleteSingle(id: -1)
+        sut.delete()
         // save
-        try CoreData.save()
+        CoreDataManager.shared.saveContext()
     }
     
     // MARK: API Tests

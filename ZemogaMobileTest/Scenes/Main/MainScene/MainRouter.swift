@@ -18,7 +18,6 @@ class MainRouter {
     init(mainVC: MainViewControllerProtocol) {
         self.mainVC = mainVC
     }
-    
 }
 
 extension MainRouter: MainRouterProtocol {
@@ -26,6 +25,5 @@ extension MainRouter: MainRouterProtocol {
     func navigateToDetailForPost(_ post: Post) {
         mainVC.presentDetailVC()
     }
-    
 }
 

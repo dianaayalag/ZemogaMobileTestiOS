@@ -26,15 +26,17 @@ struct DetailPresenter {
 //MARK: - DetailPresenterProtocol
 extension DetailPresenter: DetailPresenterProtocol {
     
+    // MARK: Controller lifecycle events
+    
     func didLoad(post: Post?) {
         self.controller.configureAdapters()
         self.controller.setUpView()
         self.controller.displayPostInfo(post)
         if let userId = post?.userId {
-            self.getUser(nid: userId)
+            self.getUser(id: Int(userId))
         }
         if let postId = post?.id {
-            self.getComments(nid: postId)
+            self.getComments(id: Int(postId))
         }
     }
     
@@ -42,12 +44,14 @@ extension DetailPresenter: DetailPresenterProtocol {
         self.controller.disappearView()
     }
     
+    // MARK: Other events
+    
     func pullToRefresh(post: Post?) {
         if let userId = post?.userId {
-            self.getUser(nid: userId)
+            self.getUser(id: Int(userId))
         }
         if let postId = post?.id {
-            self.getComments(nid: postId)
+            self.getComments(id: Int(postId))
         }
     }
 
@@ -56,9 +60,8 @@ extension DetailPresenter: DetailPresenterProtocol {
 //MARK: - Methods
 extension DetailPresenter {
     
-    private func getUser(nid: NSNumber) {
+    private func getUser(id: Int) {
         self.controller.showLoading(true)
-        let id = Int(truncating: nid)
         self.webService.fetchUser(userID: id) { userDTO in
             self.controller.showLoading(false)
             let user = userDTO.toUser
@@ -68,9 +71,8 @@ extension DetailPresenter {
         }
     }
     
-    private func getComments(nid: NSNumber) {
+    private func getComments(id: Int) {
         self.controller.showLoading(true)
-        let id = Int(truncating: nid)
         self.webService.fetchComments(postId: id) { commentsDTO in
             self.controller.showLoading(false)
             let commentsArray = commentsDTO.toComments
