@@ -36,6 +36,8 @@ class MainViewController: UIViewController {
     
     private var currentPost: Post?
     
+    private var allowRefreshing = true
+    
     lazy private var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(self.pullToRefresh), for: .valueChanged)
@@ -92,7 +94,7 @@ extension MainViewController {
     // MARK: UI Gestures
 
     @objc func pullToRefresh() {
-        self.presenter.pullToRefresh()
+        self.presenter.pullToRefresh(shouldRefresh: allowRefreshing)
     }
     
     @objc func deleteAll() {
@@ -100,6 +102,7 @@ extension MainViewController {
     }
     
     @objc func segmentedControlChanged(_ sender: UISegmentedControl) {
+        self.allowRefreshing = sender.selectedSegmentIndex == 0
         self.filterAdapter.filterByFavorites(favorites: !(sender.selectedSegmentIndex == 0))
     }
 }

@@ -14,7 +14,7 @@ protocol MainPresenterProtocol {
     func prepareForSegue(_ segue: UIStoryboardSegue, post: Post?)
     func deleteAll()
     func deleteSinglePost(_ post: Post)
-    func pullToRefresh()
+    func pullToRefresh(shouldRefresh: Bool)
 }
 
 struct MainPresenter {
@@ -69,8 +69,12 @@ extension MainPresenter: MainPresenterProtocol {
         self.deletePost(post)
     }
     
-    func pullToRefresh() {
-        self.getAllPosts()
+    func pullToRefresh(shouldRefresh: Bool) {
+        if shouldRefresh {
+            self.getAllPosts()
+        } else {
+            self.controller.showLoading(false)
+        }
     }
 }
 
